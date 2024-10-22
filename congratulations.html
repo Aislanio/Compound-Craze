@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Compound Craze</title>
+</head>
+<body>
+    <main>
+        <section class="borda">
+
+        </section>
+        <section class="information">
+            <div>
+                <h1>Congratulations</h1><br>
+                <p>You have successfully finished the game</p>
+                <a href="index.html">Jogar Novamente</a>
+            </div>
+        </section>
+        <div class="medalha">
+            <img src="img/medalha.png" alt="">
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.2/dist/confetti.browser.min.js"></script>
+    <script>
+        function confetes(){
+        let params = {
+                particleCount: 500, // Quantidade de confetes
+                spread: 90, // O quanto eles se espalham
+                startVelocity: 70, // Velocidade inicial
+                origin: { x: 0, y: 0.5 }, // Posição inicial na tela
+                angle: 45 // Ângulo em que os confetes serão lançados
+            };
+
+            // Joga confetes da esquerda pra direita
+            confetti(params);
+
+            // Joga confetes da direita para a esquerda
+            params.origin.x = 1;
+            params.angle = 135;
+            confetti(params);
+        }
+        confetes();
+        setInterval(confetes, 2850);
+
+
+    </script>
+</body>
+</html>

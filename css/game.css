@@ -1,0 +1,332 @@
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&family=Protest+Guerrilla&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Macondo&display=swap');
+
+:root{
+    --Title-family:"Protest Guerrilla", sans-serif;
+    --font-family:"Nerko One", system-ui;
+    --family-game:"Jacquarda Bastarda 9", serif;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    min-width: 100vh;
+    min-height: 100vh;
+    font-family: sans-serif;
+    position: relative;
+
+    overflow: hidden;
+    user-select: none; /* Para navegadores modernos */
+    -webkit-user-select: none; /* Para Safari e Chrome */
+    -moz-user-select: none; /* Para Firefox */
+    -ms-user-select: none;
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: 100%;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul, ol {
+    list-style: none;
+}
+
+
+/**/
+
+main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+main .Content_Canva{
+    width: 75%;
+    height: 100%;
+}
+.Content_Canva canvas{
+    width: 100%;
+    height: 100%;
+}
+main .Content_Palavras{
+    width: 25%;
+    height: 100%;
+   border-left: 1px solid #c8c8c8;
+   
+}
+main .Content_Palavras .palavras{
+    width: 100%;
+    height: 100%;
+
+    
+    display: flex;          /* Define o contêiner como flexível */
+    flex-wrap: wrap;        /* Permite que os itens se movam para a próxima linha se necessário */
+    gap: 10px;              /* Espaço entre os itens */
+    align-content: flex-start;
+
+    margin: 0;
+    padding: 3.5vh;
+    overflow-y: auto
+}
+.palavras::-webkit-scrollbar-track {
+    background-color: #F4F4F4;
+}
+.palavras::-webkit-scrollbar {
+    width: 6px;
+    background: #F4F4F4;
+}
+.palavras::-webkit-scrollbar-thumb {
+    background: #dad7d7;
+}
+
+
+.palavra{
+    border: 1px solid #c8c8c8;
+    min-width: 12vh;
+    max-width: 30vh;
+    height: 6vh;
+    border-radius: 5px;
+    
+ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.dourado{
+    border-color: #ffba00;;
+}
+main .Content_Palavras .palavras div p {
+    font-family: var(--font-family);
+}
+main .Content_Palavras .palavras div:hover{
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.112);
+}
+.dragging{
+    opacity: 5;
+}
+
+.word{
+    position: absolute;
+}
+
+.options{
+    position: absolute;
+    bottom: 0px;
+    right: 55vh;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer;
+    
+}
+.options span{
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.options span:hover{
+    padding: 0.5vh;
+    border-radius: 35%;
+    background-color: #c0c0c0;
+    
+}
+.options svg:hover{
+    color: white;
+}
+
+
+.load{
+    width: 100vh;
+    min-width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    background-color: white;
+
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    
+    z-index: 3;
+}
+
+.load_text .laod_h1{
+    font-family: arial;
+  position: relative;
+   color: black;
+  text-align: center;
+  font-size: 7rem;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  font-family: var(--Title-family);
+}
+.load_text p {
+    font-family: var(--font-family);
+    font-size: 3vh;
+}   
+
+
+.load-wrapp {
+    float: left;
+    width: 100px;
+    height: 100px;
+    margin: 0 10px 10px 0;
+    padding: 20px 20px 20px;
+    border-radius: 5px;
+    text-align: center;
+    
+}
+/*H1 aNIMANTIO*/
+.laod_h1[cortado]::after, .laod_h1[cortado]::before {
+    padding-left: 3.5px;
+    font-family: sans-serif;
+    font-weight: 100;
+    font-size: 3rem;
+    letter-spacing: .25em;
+    text-transform: uppercase;
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: attr(cortado);
+}
+.laod_h1[cortado]::after {
+    z-index: 1;
+}
+.laod_h1[cortado]::before {
+    transform: translateX(3.5px);
+    height: 25px;
+    background-color: white;
+    overflow: hidden;
+    z-index: 2;
+    border-bottom: 3px solid white;
+    padding-bottom: 3px;
+}
+
+/*Loading */
+.line {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 15px;
+    background-color: #4b9cdb;
+}
+.load-2 .line:nth-last-child(1) {
+    animation: loadingB 1.5s 1s infinite;
+}
+.load-2 .line:nth-last-child(2) {
+    animation: loadingB 1.5s 0.5s infinite;
+}
+.load-2 .line:nth-last-child(3) {
+    animation: loadingB 1.5s 0s infinite;
+}
+
+@keyframes loadingB {
+0% {
+    width: 15px;
+}
+50% {
+    width: 35px;
+}
+    100% {
+      width: 15px;
+    }
+}
+  
+.load-ani{
+    margin-top:15vh;
+}
+
+#contador{
+    font-family: var(--font-family);
+}
+
+.alert{
+    position: absolute;
+    top: 24vh;
+    right: 55vh;
+    background-color: #141313;
+    width: 100vh;
+    height: 54vh;
+    color: white;
+
+
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    font-family: "Macondo", cursive;
+
+    border-radius: 10px;
+}
+.alert_nav{
+    width: 100%;
+    height: 30%;
+
+    display: flex;
+    justify-content: space-between;
+    
+}
+.nav_Title h2{
+    font-size:8vh;
+    color: #b90504;
+}
+.nav_remove span{
+    font-size: 4.3vh;
+    cursor: pointer;
+}
+.nav_remove span:hover{
+    font-size: 4.6vh;
+    cursor: pointer;
+}
+
+.alert_details{
+    font-size: 3.8vh;
+}
+.button_contaier{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+    min-height: 15vh;
+    align-items: end;
+}
+.button{
+    width: 15vh;
+    height: 6vh;
+    background: white;
+    color: black;
+    text-align: center;
+    borde-radius: 5px;
+    border: 1px solid white;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.play{
+    background-color: rgb(202, 199, 195);
+}
+.button:hover{
+    transform: translateY(-5px); /* Move o botão para cima */
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+}

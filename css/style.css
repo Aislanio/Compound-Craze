@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Nerko+One&family=Protest+Guerrilla&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jacquarda+Bastarda+9&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Macondo&display=swap');
+
+:root{
+    --Title-family:"Protest Guerrilla", sans-serif;
+    --font-family:"Nerko One", system-ui;
+    --family-game:"Jacquarda Bastarda 9", serif;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    min-width: 100vh;
+    min-height: 100vh;
+    font-family: sans-serif;
+    position: relative;
+
+    overflow: hidden;
+    user-select: none; /* Para navegadores modernos */
+    -webkit-user-select: none; /* Para Safari e Chrome */
+    -moz-user-select: none; /* Para Firefox */
+    -ms-user-select: none;
+}
+
+main{
+    width: 100%;
+    min-height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    position: relative;
+   
+    align-items: center;
+}
+
+.borda{
+    width: 100%;
+    height: 40vh;
+    border-bottom: 1px solid blue;
+    border-bottom-left-radius: 300px 120px;
+    border-bottom-right-radius: 300px 120px;
+    background-color: blue;
+}
+
+.medalha{
+    position:absolute;
+    right: 85vh;
+    top: 17vh;
+}
+.medalha img{
+    width: 100%;
+    max-width: 50vh;
+}
+.information{
+    margin-top: 30vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.information h1{
+    font-size: 8.5vh;
+    font-family: var(--Title-family);
+}
+
+.information p{
+    font-size: 5vh;
+    font-family: var(--font-family);
+}
+.information a{
+    font-size: 4vh;
+    color: black;
+    font-family: var(--font-family);
+}
+
+.information a:hover{
+    color: blue;
+    transform: translateY(-5px); /* Move o botão para cima */
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.5);
+}
